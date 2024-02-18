@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadauna Farms</title>
+    <!-- Link to Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* CSS Styles for the website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        canvas {
+            max-width: 600px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Sadauna Farms</h1>
+        <p>Providing Fresh and Organic Produce</p>
+    </header>
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Sadauna Farms is committed to sustainable farming practices, ensuring that our produce is fresh, healthy, and environmentally friendly.</p>
+        <h2>Profitability Chart</h2>
+        <canvas id="profitabilityChart"></canvas>
+    </div>
+
+    <!-- JavaScript for Chart.js -->
+    <script>
+        // Sample data for the profitability chart
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        var profits = [5000, 6000, 7000, 8000, 9000, 10000];
+
+        // Get the canvas element
+        var ctx = document.getElementById('profitabilityChart').getContext('2d');
+
+        // Create the chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Profit',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: profits
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
